@@ -40,8 +40,7 @@ int _printf(const char *format, ...)
 						i = i + 2;
 						continue;
 					}
-					;
-				break;
+					break;
 				case 's':
 					f = get_function(&format[i + 1]);
 					{
@@ -50,17 +49,17 @@ int _printf(const char *format, ...)
 						i = i + 2;
 						continue;
 					}
-				break;
+					break;
 				case '%':
 					value = write(1, &format[i + 1], 1);
 					count = count + value;
 					i = i + 2;
-				break;
+					break;
 				default:
 					value = write(1, &format[i], 1);
 					count = count + value;
 					i++;
-				break;
+					break;
 			}
 		}
 	}
