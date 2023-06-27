@@ -13,7 +13,7 @@ int (*get_function(const char *format))(va_list)
 		{"s", print_string},
 		{NULL, NULL}
 	};
-	
+
 	int i;
 
 	i = 0;
