@@ -31,7 +31,7 @@ int print_string(va_list list)
 	char *s = (char *)va_arg(list, char *);
 
 	if (s == NULL)
-		return(0);
+		return (0);
 	while (s[i] != '\0')
 	{
 		value = write(1, &s[i], 1);
