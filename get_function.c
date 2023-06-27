@@ -1,6 +1,4 @@
-#include<stdlib.h>
 #include "main.h"
-#include <stdarg.h>
 /**
  * get_function - selects the right function to perform
  * @format: char to check
@@ -16,6 +14,8 @@ int (*get_function(const char *format))(va_list)
 
 	int i;
 
+	if (format == NULL)
+		return (NULL);
 	i = 0;
 	while (array[i].format != NULL)
 	{
