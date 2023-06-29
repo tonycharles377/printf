@@ -1,4 +1,6 @@
 #include "main.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 /**
  * print_char - prints character to stdout
@@ -31,7 +33,11 @@ int print_string(va_list list)
 	char *s = (char *)va_arg(list, char *);
 
 	if (s == NULL)
-		return (-1);
+	{
+		value = write(1, "(null)", 6);
+		count = count + value;
+		return (count);
+	}
 	while (s[i] != '\0')
 	{
 		value = write(1, &s[i], 1);
