@@ -8,7 +8,7 @@ int (*get_function(const char *format))(va_list)
 {
 	funcs_t array[] = {
 		{"c", print_char},
-		{"s", print_string},
+		{"s", print_string},	
 		{"d", print_numd},
 		{"i", print_numd},
 		{NULL, NULL}

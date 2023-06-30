@@ -1,6 +1,5 @@
 #include "main.h"
 
-int _printf(const char *format, ...);
 /**
  * _printf - produces output according to a format
  * @format: const char argument
@@ -29,46 +28,18 @@ int _printf(const char *format, ...)
 
 		if (format[i] == '%')
 		{
-			switch (format[i + 1])
+			f = get_function(&format[i + 1]);
+			if (f != NULL)
 			{
-				case 'c':
-					f = get_function(&format[i + 1]);
-					if (f != NULL)
-					{
-						value = f(list);
-						count = count + value;
-						i = i + 2;
-						continue;
-					}
-				break;
-				case 's':
-					f = get_function(&format[i + 1]);
-					{
-						value = f(list);
-						count = count + value;
-						i = i + 2;
-						continue;
-					}
-				break;
-				case '%':
-					value = write(1, &format[i + 1], 1);
-					count = count + value;
-					i = i + 2;
-				break;
-				case 'd':
-					f = get_function(&format[i + 1]);
-					if (f != NULL)
-					{
-						value = f(list);
-						count = count + value;
-						i = i + 2;
-					}
-				break;
-				default:
-					value = write(1, &format[i], 1);
-					count = count + value;
-					i++;
-				break;
+				value = f(list);
+				count = count + value;
+				i = i + 2;
+			}
+			else
+			{
+				value = _putchar('%');
+				count = count + value;
+				i++;
 			}
 		}
 	}

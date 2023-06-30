@@ -42,6 +42,18 @@ int print_string(va_list list)
 }
 
 /**
+ * print_perc - prints % symbol
+ * @list: variadic parameters
+ *
+ * Return: number of chars printed
+ */
+int print_p(va_list list)
+{
+	(void)list;
+	return (_putchar('%'));	
+}
+
+/**
  * print_num - prints number to stdout
  * @list: variadic parameters
  *

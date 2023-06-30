@@ -20,6 +20,7 @@ int _printf(const char *format, ...);
 int (*get_function(const char *format))(va_list);
 int print_char(va_list list);
 int print_string(va_list list);
+int print_p(va_list list);
 int print_numd(va_list list);
 
 #endif
