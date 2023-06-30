@@ -43,18 +43,27 @@ int _printf(const char *format, ...)
 				break;
 				case 's':
 					f = get_function(&format[i + 1]);
-					if (f == NULL)
-						return (-1);
-					value = f(list);
-					count = count + value;
-					i = i + 2;
+					{
+						value = f(list);
+						count = count + value;
+						i = i + 2;
+						continue;
+					}
 				break;
 				case '%':
 					value = write(1, &format[i + 1], 1);
 					count = count + value;
 					i = i + 2;
 				break;
-				case 'd': 
+				case 'd':
+					f = get_function(&format[i + 1]);
+					if (f != NULL)
+					{
+						value = f(list);
+						count = count + value;
+						i = i + 2;
+					}
+				break;
 				default:
 					value = write(1, &format[i], 1);
 					count = count + value;
