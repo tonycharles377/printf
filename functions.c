@@ -55,24 +55,18 @@ int print_numd(va_list list)
 {
 	int count = 0, value = 0, num = (int)va_arg(list, int);
 
-	int print_num(int num)
+	/*
+	if (num < 0)
 	{
-		int count = 0, value = 0;
-
-		if (num < 0)
-		{
-			value = _putchar('-');
-			count = count + value;
-			num = -num;
-		}
-		if (num > 9)
-		{
-			print_num(num / 10);
-		}
-		value = _putchar('0' + (num % 10));
+		value = _putchar('-');
 		count = count + value;
-		return (count);
+		num = -num;
 	}
-	count = print_num(num);
+	if (num > 9)
+	{
+		print_numd(num / 10);
+	}*/
+	value = _putchar('0' + (num % 10));
+	count = count + value;
 	return (count);
 }
