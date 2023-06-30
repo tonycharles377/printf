@@ -54,6 +54,7 @@ int _printf(const char *format, ...)
 					count = count + value;
 					i = i + 2;
 				break;
+				case 'd': 
 				default:
 					value = write(1, &format[i], 1);
 					count = count + value;
